@@ -15,8 +15,8 @@ const dirLauncher = './../../distributions/launcher';
 const projectName = 'Touch Mobile';
 const packageName = 'com.touch.mobile.dark';
 
-const cdnCache = 'https://game.touch-rp.com/mobile/cache';
-const cdnLauncher = 'https://game.touch-rp.com/mobile/launcher';
+const cdnCache = 'https://github.com/Den1108/samp-mobile-cache/releases/download/v1.0.0/cache.zip';
+const cdnLauncher = 'https://github.com/Den1108/samp-mobile-cache/releases/download/v1.0.0/cache.zip';
 
 const appVersion = '0.0.39';
 const rss = 'https://touch-rp.com/api/launcer/news';
