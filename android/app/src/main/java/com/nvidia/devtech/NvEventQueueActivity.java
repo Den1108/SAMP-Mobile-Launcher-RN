@@ -422,6 +422,15 @@ public abstract class NvEventQueueActivity
     }
 
     /**
+    * Заглушка для multiTouchEvent4 с делегированием в customMultiTouchEvent
+ */
+public boolean multiTouchEvent4(int action, int count, int x0, int y0, int x1, int y1,
+                                int x2, int y2, int x3, int y3, MotionEvent event) {
+    // customMultiTouchEvent использует action, count, x1, y1, x2, y2, x3, y3
+    return customMultiTouchEvent(action, count, x1, y1, x2, y2, x3, y3);
+}
+
+    /**
      * Helper function to load a texture file into a {@link NvEventQueueActivity.RawTexture} object.
      * It'll first try loading the texture from "/data/" and if the file doesn't
      * exist there, it'll try loading it from the assets directory inside the
