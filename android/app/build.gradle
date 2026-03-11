@@ -146,7 +146,7 @@ android {
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
         // vectorDrawables.useSupportLibrary = true
        ndk {
-           abiFilters "armeabi-v7a"
+           abiFilters "armeabi-v7a", "arm64-v8a"
        }
 
         if (isNewArchitectureEnabled()) {
