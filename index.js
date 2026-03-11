@@ -6,15 +6,23 @@ import { name as appName } from './app.json';
 import { store } from './src/store/store';
 import { FileLogger } from 'react-native-file-logger';
 
+// Настраиваем логгер
 FileLogger.configure({
-  captureConsole: true,        // все console.log будут писаться в файл
-  dailyRolling: true,          // новый файл каждый день
-  maximumFileSize: 1024 * 1024, // 1 МБ на файл
-  maximumNumberOfFiles: 5      // хранить до 5 файлов
+  captureConsole: true,
+  dailyRolling: true,
+  maximumFileSize: 1024 * 1024,
+  maximumNumberOfFiles: 5
 }).then(() => {
+  // ⬇️ ЭТО БУДЕТ В ЛОГАХ (если captureConsole работает)
   console.log('✅ File logger initialized');
+  
+  // ⬇️ А ЭТО БУДЕТ В ЛОГАХ ТОЧНО (прямой вызов API)
+  FileLogger.debug('🚀 Application starting...');
+  FileLogger.info('App version: 0.0.16');
+  FileLogger.warn('⚠️ This is a test warning');
 }).catch(err => {
   console.log('❌ Failed to init logger:', err);
+  FileLogger.error('❌ Logger init failed: ' + err);
 });
 
 const RNRedux = () => (
@@ -22,5 +30,8 @@ const RNRedux = () => (
     <App />
   </Provider>
 );
+
+// Добавим ещё один тестовый лог перед регистрацией
+FileLogger.debug('📱 Registering app component...');
 
 AppRegistry.registerComponent(appName, () => RNRedux);
